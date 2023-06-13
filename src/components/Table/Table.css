@@ -1,0 +1,96 @@
+.app-table{
+ 
+  width : 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 550px;
+  overflow-x: auto;
+}
+
+.app-table-head-row,
+.app-table-body-row{
+  display: flex;
+  height: 64px;
+  align-items: center;
+  transition: 0.5s ease;
+}
+.app-table-body-row:hover{
+  background: rgba(255, 255, 255, 0.71);
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.11);
+}
+
+.app-table-head-row th,
+.app-table-body-row td{
+  flex: 1;
+  display: flex;
+
+}
+
+.app-table-body-row td{
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  color: var(--text-color);
+  padding-left: 52px;
+}
+
+.app-table-head-row th{
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--text-color);
+  padding-left: 52px;
+
+}
+.app-table-head{
+  border-bottom: 1px solid #C4CEE5;
+}
+.app-table-head-row th,
+.app-table-body-row td{
+  
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.app-table-body-row td:nth-child(1),
+.app-table-head-row th:nth-child(1),
+.app-table-body-row td:nth-child(2),
+.app-table-head-row th:nth-child(2){
+  border-right: 1px solid #C4CEE5;
+}
+.logo-union{
+  position: relative;
+}
+
+.custom-select {
+  border: 1px solid var(--hover-color);
+  padding: 8px;
+  font-size: 14px;
+  width: 100px;
+  border-radius: 20px;
+  position: absolute;
+  top: -12px;
+  right: -120px;
+}
+
+.custom-option {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+.custom-select:focus,
+.custom-select:active,
+.custom-select:hover {
+  outline: none;
+  border: 1px solid var(--hover-color);
+}
+.custom-option:checked {
+  background-color: #fff;
+  color: var(--text-color);
+}
+
+

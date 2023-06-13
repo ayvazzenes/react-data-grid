@@ -1,28 +1,57 @@
 import React, { useState } from "react";
-import "./Search.css"
-import logoUnion from "../../assets/icons/logo-union.png"
+import "./Search.css";
+import logoUnion from "../../assets/icons/logo-union.png";
 
-function Search({ onInput }) {
+function Search({ onInput,onSelected }) {
   const [inputValue, setInputValue] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOption, setSelectedOption] = useState("link");
+
 
   const handleChange = (event) => {
-    setInputValue(event.target.value);
-    onInput(event.target.value); // Her değer değiştiğinde onInput'e değeri iletir
+    event.preventDefault();
+    const value = event.target.value;
+    setInputValue(value);
+    onInput(value);
+  };
+  
+  const handleSelect = (event) => {
+    const selectedValue = event.target.value;
+    setSelectedOption(selectedValue);
+    onSelected(selectedValue);
+  };
+  
+  const handleLogoClick = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
     <div className="search-container">
-      <form className="search-form">
-        <input type="text" value={inputValue} onChange={handleChange} className="search-input" placeholder="Search objects..."/>
-        <button type="submit" className="search-btn">
-              <div className="circle">
-                <div className="circle-line"></div>
-              </div>
-        </button>
-      </form>
-      <div className="logo-union">
-            <img src={logoUnion} alt="logo-Union"/>
+      <div className="search-form">
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleChange}
+          className="search-input"
+          placeholder="Search objects..."
+        />
+        <button className="search-btn">
+          <div className="circle">
+            <div className="circle-line"></div>
           </div>
+        </button>
+      </div>
+      <div className="logo-union">
+        <img src={logoUnion} alt="logo-Union"  onClick={handleLogoClick}/>
+        {isOpen && (
+          <select className="custom-select" value={selectedOption} onChange={handleSelect}>
+            <option className="custom-option" value="link">Link</option>
+            <option className="custom-option" value="name">Name</option>
+            <option className="custom-option" value="desc">Desc</option>
+          </select>
+
+        )}
+      </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import "./CreateData.css";
 const CreateData = () => {
   return (
     <>
-      <button class="btn-primary">
+      <button className="btn-primary">
         <span>+</span>
         <span>Yeni Hesap Ekle</span>
       </button>

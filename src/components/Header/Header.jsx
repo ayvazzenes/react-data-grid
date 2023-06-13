@@ -8,7 +8,7 @@ import "./Header.css"
 
 const Header = () => {
   return (
-    <header class="app-header">
+    <header className="app-header">
       <nav className="app-navbar container">
         <div className="app-logo">
           <img src={appLogo} alt="app-logo" />

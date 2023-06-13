@@ -1,0 +1,113 @@
+/* ! HEADER CSS START */
+.app-header {
+  position: relative;
+}
+.app-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 104px;
+}
+.navbar-links {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  column-gap: 111px;
+}
+.navbar-links a {
+  color: var(--text-color);
+  transition: 0.3s ease;
+}
+.navbar-links a:hover {
+  color: var(--hover-color);
+}
+.logo-links {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  column-gap: 14px;
+}
+.logo-link {
+  width: 18px;
+  height: 18px;
+}
+.logo-link img {
+  border-radius: 2px;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar:nth-child(1) {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px 0;
+  transition: all 0.2s ease-in-out;
+}
+.bar:nth-child(2) {
+  width: 21px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px 0;
+  transition: all 0.2s ease-in-out;
+}
+.bar:nth-child(3) {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px 0;
+  transition: all 0.2s ease-in-out;
+}
+.hamburger:hover .bar:nth-child(1),
+.hamburger:hover .bar:nth-child(3) {
+  width: 20px;
+}
+.hamburger:hover .bar:nth-child(2) {
+  width: 25px;
+}
+@media (max-width: 1366px) {
+  .navbar-links {
+    column-gap: 40px;
+  }
+}
+@media (max-width: 1024px) {
+  .logo-links {
+    display: none;
+  }
+  .container {
+    padding: 0 32px;
+  }
+  .navbar-links {
+    column-gap: 20px;
+  }
+}
+@media (max-width: 850px) {
+  .navbar-links {
+    flex-direction: column;
+    row-gap: 2rem;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background: #eeeded;
+    width: 200px;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    z-index: 999;
+    border-right: 1px solid #eeededbf;
+    box-shadow: 0px 0px 5px #505050bf;
+  }
+  .navbar-links a {
+    color: var(--text-color);
+  }
+  .hamburger {
+    display: block;
+  }
+  
+}
+
+/* ! HEADER CSS END */
+

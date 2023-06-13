@@ -1,0 +1,22 @@
+.btn-primary{
+  width: 175px;
+  height: 42px;
+  background-color: var(--hover-color);
+  border-radius: 39px;
+  border: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 14px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn-primary span:nth-child(1){
+  font-size: 20px;
+}
+.btn-primary:hover{
+  box-shadow: 0 0 5px var(--hover-color);
+}

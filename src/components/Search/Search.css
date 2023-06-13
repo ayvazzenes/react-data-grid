@@ -1,0 +1,75 @@
+.search-btn{
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--hover-color);
+  border: 1px solid #ccc;
+  border-color: var(--hover-color);
+  box-shadow: 0 0 5px var(--hover-color);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  width: 45px;
+  height: 42px;
+  cursor: pointer;
+  border-top-right-radius: 39px;
+  border-bottom-right-radius: 39px;
+}
+.circle{
+  width: 18px;
+  height: 18px;
+  position: relative;
+  border: 1px solid #fff;
+  border-radius: 50%;
+
+}
+.circle .circle-line
+{
+  position: absolute;
+  height: 1px;
+  background-color: #fff;
+  width: 4px;
+  bottom: -2px;
+  right: -1px;
+  transform: rotate(45deg);
+
+}
+.search-btn img{
+  width: 16px;
+  height: 16px;
+}
+.search-form{
+  position: relative;
+}
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 29px;
+}
+
+.search-input {
+  font-family: 'Inter';
+  width: 380px;
+  height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 39px;
+  padding-left: 29px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8C8C8C;
+
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--hover-color);
+  box-shadow: 0 0 5px var(--hover-color);
+}
+.logo-union{
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

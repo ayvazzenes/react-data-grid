@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-content-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+  margin-top: 44px;
+}
+.app-mt {
+  margin-top: 3rem;
 }
 
-.App-link {
-  color: #61dafb;
+.rdt_Table {
+  overflow-x: auto !important;
+  max-height: 500px !important;
+}
+.svYMe {
+  margin-right: auto !important;
+}
+#pagination-last-page {
+  display: none !important;
+}
+#pagination-first-page {
+  display: none !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.rdt_TableCell:nth-child(2),
+.rdt_TableCell:nth-child(3){
+  
+  border-right: 1px solid #C4CEE5;
+}
+.rdt_TableCol:nth-child(2),
+.rdt_TableCol:nth-child(3){
+  border-right: 1px solid #C4CEE5;
+}
+.rdt_TableHeadRow{
+  border-bottom: 1px solid #C4CEE5 !important;
+}
+.rdt_Pagination{
+  border-top: 1px solid transparent !important;
+}
+.hbgCLW:not(:last-of-type) {
+  border: none !important;
+}
+
+@media (max-width: 599px) {
+  .fimDOL {
+    width: 100%;
+    justify-content: space-around;
   }
-  to {
-    transform: rotate(360deg);
+  .svYMe {
+    margin-right: 0 !important;
   }
 }

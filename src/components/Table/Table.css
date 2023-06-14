@@ -6,7 +6,9 @@
   height: 550px;
   overflow-x: auto;
 }
-
+.app-table ::selection {
+  background-color: transparent;
+}
 .app-table-head-row,
 .app-table-body-row{
   display: flex;

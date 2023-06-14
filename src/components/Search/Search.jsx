@@ -45,9 +45,9 @@ function Search({ onInput,onSelected }) {
         <img src={logoUnion} alt="logo-Union"  onClick={handleLogoClick}/>
         {isOpen && (
           <select className="custom-select" value={selectedOption} onChange={handleSelect}>
-            <option className="custom-option" value="link">Link</option>
-            <option className="custom-option" value="name">Name</option>
-            <option className="custom-option" value="desc">Desc</option>
+            <option className="custom-option" value="link">Medya Linki</option>
+            <option className="custom-option" value="name">Medya Adı</option>
+            <option className="custom-option" value="description">Açıklama</option>
           </select>
 
         )}

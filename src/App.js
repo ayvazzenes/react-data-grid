@@ -11,19 +11,32 @@ function App() {
   const handleSearch = (query)=>{
     setInputValue(query);
 
-  }
+  };
   const handleSelected = (value)=>{
     setSelectedValue(value);
     
+  };
+  let newData = [];
+  const handleSaveData = (data)=>{
+    const existingData = localStorage.getItem("savedData");
+    
+    if (existingData) {
+      newData = JSON.parse(existingData);
+    }
+    newData.push(data);
+
+    localStorage.setItem("savedData", JSON.stringify(newData));
+
+    
   }
-  console.log(selectedValue);
+  
   return (
     <div className="App">
       <Header />
       
         <div className="app-content-header container">
           <Search onInput = {handleSearch} onSelected= {handleSelected}/>
-          <CreateData/>
+          <CreateData onSave={handleSaveData }/>
           
         </div>
         <div className="container app-mt">

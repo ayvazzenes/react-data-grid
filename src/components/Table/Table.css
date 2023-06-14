@@ -62,19 +62,17 @@
 .app-table-head-row th:nth-child(2){
   border-right: 1px solid #C4CEE5;
 }
-.logo-union{
-  position: relative;
-}
+
 
 .custom-select {
   border: 1px solid var(--hover-color);
   padding: 8px;
   font-size: 14px;
-  width: 100px;
+  width: 130px;
   border-radius: 20px;
   position: absolute;
-  top: -12px;
-  right: -120px;
+  top: -2px;
+  right: -140px;
 }
 
 .custom-option {

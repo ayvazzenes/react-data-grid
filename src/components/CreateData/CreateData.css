@@ -20,3 +20,91 @@
 .btn-primary:hover{
   box-shadow: 0 0 5px var(--hover-color);
 }
+
+.popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 490px;
+  height: 406px;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  border-radius: 13px;
+  padding: 20px;
+  
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  margin-top: 41px;
+}
+
+.popup-content label {
+  margin-bottom: 5px;
+  color: #06163A;
+}
+
+.popup-content input {
+  font-family: "Inter";
+  margin-bottom: 10px;
+  height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 39px;
+  padding-left: 29px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 17px;
+  color: #8c8c8c;
+}
+.popup-content input:focus{
+  outline: none;
+  border-color: var(--hover-color);
+  box-shadow: 0 0 5px var(--hover-color);
+}
+
+.popup-content .error {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.popup-content .buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  column-gap: 18px;
+}
+.close-button{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  color: #33363F;
+  cursor: pointer;
+}
+
+
+.popup-content .btn-primary {
+  width: 83px;
+}
+
+.btn-secondary {
+  width: 83px;
+  border: none;
+  background: #F5F7FF;
+  border-radius: 34px;
+  font-family: 'Poppins';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  color: var(--hover-color);
+}

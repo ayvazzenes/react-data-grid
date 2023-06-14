@@ -1,13 +1,16 @@
 
+import React from "react";
 import "./Table.css";
-import { data } from "../../data";
+import { useData } from "../../data";
 
 
 const Table = ({onSearch,onSelect}) => {
   
-  console.log(onSelect);
+  const { data } = useData();
+  
+
   const filteredData = data.filter((item) => {
-    const mediaName = item.media_link.toLowerCase();
+    const mediaName = item["media_"+ onSelect].toLowerCase();
     return mediaName.includes(onSearch.toLowerCase());
   });
   
@@ -19,6 +22,7 @@ const Table = ({onSearch,onSelect}) => {
           <th>Sosyal Medya Adı</th>
           <th>Açıklama</th>
         </tr>
+        
       </thead>
       <tbody className="app-table-body">
         {filteredData.map((item) => (

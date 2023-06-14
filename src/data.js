@@ -1,122 +1,18 @@
-export const data = [
-  {
-    id: 1,
-    media_link: "Vida",
-    media_name: "Akess",
-    media_description: "Dominy",
-  },
-  {
-    id: 2,
-    media_link: "Wanids",
-    media_name: "Pawelec",
-    media_description: "Scotson",
-  },
-  {
-    id: 3,
-    media_link: "Diego",
-    media_name: "Porte",
-    media_description: "Acock",
-  },
-  {
-    id: 4,
-    media_link: "Flinn",
-    media_name: "Daouse",
-    media_description: "Vasic",
-  },
-  {
-    id: 5,
-    media_link: "Galvin",
-    media_name: "Bluett",
-    media_description: "Moorhouse",
-  },
-  {
-    id: 6,
-    media_link: "Elna",
-    media_name: "Mardoll",
-    media_description: "Strange",
-  },
-  {
-    id: 7,
-    media_link: "Avrit",
-    media_name: "Joye",
-    media_description: "Grove",
-  },
-  {
-    id: 8,
-    media_link: "Bobbette",
-    media_name: "Lakin",
-    media_description: "Pittendreigh",
-  },
-  {
-    id: 9,
-    media_link: "Marcelle",
-    media_name: "Gellier",
-    media_description: "MacCrachen",
-  },
-  {
-    id: 10,
-    media_link: "Constantine",
-    media_name: "Gresswood",
-    media_description: "Andersson",
-  },
-  {
-    id: 11,
-    media_link: "Oren",
-    media_name: "Crickmoor",
-    media_description: "Anderer",
-  },
-  {
-    id: 12,
-    media_link: "Shae",
-    media_name: "Romanini",
-    media_description: "Adam",
-  },
-  {
-    id: 13,
-    media_link: "Shaw",
-    media_name: "Upham",
-    media_description: "Welfare",
-  },
-  {
-    id: 14,
-    media_link: "Carma",
-    media_name: "Trimbey",
-    media_description: "Carter",
-  },
-  {
-    id: 15,
-    media_link: "Francois",
-    media_name: "Acosta",
-    media_description: "Duguid",
-  },
-  {
-    id: 16,
-    media_link: "Hazel",
-    media_name: "Asey",
-    media_description: "Lackney",
-  },
-  {
-    id: 17,
-    media_link: "Stacee",
-    media_name: "Sutherington",
-    media_description: "Castagnaro",
-  },
-  {
-    id: 18,
-    media_link: "Valerye",
-    media_name: "Pietz",
-    media_description: "Fahrenbach",
-  },
-  {
-    id: 19,
-    media_link: "Mark",
-    media_name: "Oaten",
-    media_description: "Goodison",
-  },
-  {
-    id: 20,
-    media_link: "Stern",
-    media_name: "Catherick",
-    media_description: "Mullins",
-  },
-];
+import { useState, useEffect } from "react";
+
+export const useData = () => {
+  const [data, setData] = useState(() => {
+    const savedData = localStorage.getItem("savedData");
+    if (savedData) {
+      return JSON.parse(savedData);
+    } else {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]); // data değiştiği zaman bu useEffect tekrar çalışacak
+
+  return { data };
+};

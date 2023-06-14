@@ -55,79 +55,86 @@ const Table = ({ onSearch, onSelect, tasks }) => {
 
   return (
     <div>
-      <table className="app-table">
-        <thead className="app-table-head">
-          <tr className="app-table-head-row">
-            <th>
-              <div
-                onClick={() => handleSort("media_link")}
-                className="sortable-css"
-              >
-                Sosyal Medya Link
-                {sortedColumn === "media_link" && (
-                  <span>
-                    {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
-                  </span>
-                )}
-                {sortedColumn !== "media_link" && (
-                  <span>
-                    <BsArrowDown />
-                  </span>
-                )}
-              </div>
-            </th>
-            <th>
-              <div
-                onClick={() => handleSort("media_name")}
-                className="sortable-css"
-              >
-                Sosyal Medya Adı
-                {sortedColumn === "media_name" && (
-                  <span>
-                    {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
-                  </span>
-                )}
-                {sortedColumn !== "media_name" && (
-                  <span>
-                    <BsArrowDown />
-                  </span>
-                )}
-              </div>
-            </th>
-            <th>
-              <div
-                onClick={() => handleSort("media_description")}
-                className="sortable-css"
-              >
-                Açıklama
-                {sortedColumn === "media_description" && (
-                  <span>
-                    {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
-                  </span>
-                )}
-                {sortedColumn !== "media_description" && (
-                  <span>
-                    <BsArrowDown />
-                  </span>
-                )}
-              </div>
-            </th>
-          </tr>
-        </thead>
-        <tbody className="app-table-body">
-          {currentPageData.map((item) => (
-            <tr className="app-table-body-row" key={item.id}>
-              <td>{item.media_link}</td>
-              <td>{item.media_name}</td>
-              <td>{item.media_description}</td>
+      <div className="table-wrapper">
+        <table className="app-table">
+          <thead className="app-table-head">
+            <tr className="app-table-head-row">
+              <th>
+                <div
+                  onClick={() => handleSort("media_link")}
+                  className="sortable-css"
+                >
+                  Sosyal Medya Link
+                  {sortedColumn === "media_link" && (
+                    <span>
+                      {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
+                    </span>
+                  )}
+                  {sortedColumn !== "media_link" && (
+                    <span>
+                      <BsArrowDown />
+                    </span>
+                  )}
+                </div>
+              </th>
+              <div className="line-height-1"></div>
+              <th>
+                <div
+                  onClick={() => handleSort("media_name")}
+                  className="sortable-css"
+                >
+                  Sosyal Medya Adı
+                  {sortedColumn === "media_name" && (
+                    <span>
+                      {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
+                    </span>
+                  )}
+                  {sortedColumn !== "media_name" && (
+                    <span>
+                      <BsArrowDown />
+                    </span>
+                  )}
+                </div>
+              </th>
+              <div className="line-height-2"></div>
+              <th>
+                <div
+                  onClick={() => handleSort("media_description")}
+                  className="sortable-css"
+                >
+                  Açıklama
+                  {sortedColumn === "media_description" && (
+                    <span>
+                      {sortOrder === "asc" ? <BsArrowUp /> : <BsArrowDown />}
+                    </span>
+                  )}
+                  {sortedColumn !== "media_description" && (
+                    <span>
+                      <BsArrowDown />
+                    </span>
+                  )}
+                </div>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="app-table-body">
+            <div className="table-row-wrapper">
+              {currentPageData.map((item) => (
+                <tr className="app-table-body-row" key={item.id}>
+                  <td>{item.media_link}</td>
+                  <td>{item.media_name}</td>
+                  <td>{item.media_description}</td>
+                </tr>
+              ))}
+            </div>
+          </tbody>
+        </table>
+      </div>
       <div className="pagination">
         <div className="pagination-show">
           <label>Show:</label>
           <select
+            className="pagination-select"
             value={perPage}
             onChange={(e) => {
               const newPerPage = parseInt(e.target.value);
@@ -139,17 +146,35 @@ const Table = ({ onSearch, onSelect, tasks }) => {
               }
             }}
           >
-            <option value={4}>4</option>
-            <option value={6}>6</option>
-            <option value={20}>20</option>
+            <option className="pagination-option" value={4}>
+              4 rows
+            </option>
+            <option className="pagination-option" value={6}>
+              6 rows
+            </option>
+            <option className="pagination-option" value={10}>
+              10 rows
+            </option>
           </select>
         </div>
         <div className="pagination-text-arrow">
-          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+          <button
+            onClick={handlePreviousPage}
+            disabled={currentPage === 1}
+            className={currentPage === 1 ? "disabled-button" : "custom-button"}
+          >
             <IoIosArrowBack />
           </button>
-          <span className="page-number"><span className="page-active">{`${currentPage}`}</span> of <span className="page-total">{`${pageCount}`}</span></span>
-          <button onClick={handleNextPage} disabled={currentPage === pageCount}>
+          <span className="page-number">
+            <span className="page-active">{`${currentPage}`}</span> of{" "}
+            <span className="page-total">{`${pageCount}`}</span>
+          </span>
+          <button
+            onClick={handleNextPage}
+            className={
+              currentPage === pageCount ? "disabled-button" : "custom-button"
+            }
+          >
             <IoIosArrowForward />
           </button>
         </div>

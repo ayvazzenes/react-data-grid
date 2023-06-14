@@ -2,9 +2,30 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 44px;
 }
 .app-mt {
   margin-top: 3rem;
 }
+.app-wrapper {
+  background: linear-gradient(
+    180deg,
+    #eff2ff -30.56%,
+    rgba(232, 236, 255, 0) 135.85%
+  );
+  border-radius: 10px;
+  padding: 40px 0;
+}
+.overlay {
+  padding: 0 40px;
+}
+.app-pd {
+  padding: 0 62px;
+}
 
+@media (max-width: 850px) {
+  .app-content-header {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1rem;
+  }
+}

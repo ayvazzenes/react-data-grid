@@ -20,12 +20,10 @@ const CreateData = ({ onSave }) => {
       return;
     }
 
- 
-
     onSave({
       media_link: input1,
       media_name: input2,
-      media_description: input3
+      media_description: input3,
     });
 
     // Formu sıfırla
@@ -50,23 +48,33 @@ const CreateData = ({ onSave }) => {
       </button>
 
       {showPopup && (
-        <div className="popup">
+        <div className={`popup ${showPopup ? "" : "fadeOut"}`}>
           <div className="popup-header">
-            
             <button className="close-button" onClick={closePopup}>
               X
             </button>
           </div>
           <form className="popup-content" onSubmit={handleSubmit}>
             <label>Sosyal Medya Linki:</label>
-            <input type="text" value={input1} onChange={(e) => handleInputChange(e, setInput1)} />
+            <input
+              type="text"
+              value={input1}
+              onChange={(e) => handleInputChange(e, setInput1)}
+            />
             <label>Sosyal Medya Adı:</label>
-            <input type="text" value={input2} onChange={(e) => handleInputChange(e, setInput2)} />
+            <input
+              type="text"
+              value={input2}
+              onChange={(e) => handleInputChange(e, setInput2)}
+            />
             <label>Açıklama:</label>
-            <input type="text" value={input3} onChange={(e) => handleInputChange(e, setInput3)} />
+            <input
+              type="text"
+              value={input3}
+              onChange={(e) => handleInputChange(e, setInput3)}
+            />
             {error && <p className="error">{error}</p>}
             <div className="buttons">
-
               <button className="btn-secondary" onClick={closePopup}>
                 Vazgeç
               </button>

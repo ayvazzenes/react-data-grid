@@ -1,4 +1,4 @@
-.btn-primary{
+.btn-primary {
   width: 175px;
   height: 42px;
   background-color: var(--hover-color);
@@ -6,7 +6,7 @@
   border: none;
   color: #fff;
   font-size: 14px;
-  line-height: 17px;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,32 +14,57 @@
   cursor: pointer;
   transition: 0.3s ease;
 }
-.btn-primary span:nth-child(1){
+.btn-primary span:nth-child(1) {
   font-size: 20px;
 }
-.btn-primary:hover{
+.btn-primary:hover {
   box-shadow: 0 0 5px var(--hover-color);
 }
 
 .popup {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 490px;
   height: 406px;
   transform: translate(-50%, -50%);
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 13px;
   padding: 20px;
-  
+  z-index: 9999;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+.popup.fadeOut {
+  animation: fadeOut 0.3s ease-in-out forwards;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
 }
 
 .popup-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 13px;
   line-height: 20px;
@@ -48,7 +73,7 @@
 
 .popup-content label {
   margin-bottom: 5px;
-  color: #06163A;
+  color: #06163a;
 }
 
 .popup-content input {
@@ -63,7 +88,7 @@
   line-height: 17px;
   color: #8c8c8c;
 }
-.popup-content input:focus{
+.popup-content input:focus {
   outline: none;
   border-color: var(--hover-color);
   box-shadow: 0 0 5px var(--hover-color);
@@ -80,17 +105,16 @@
   margin-top: 10px;
   column-gap: 18px;
 }
-.close-button{
+.close-button {
   position: absolute;
   top: 5px;
   right: 10px;
   border: none;
   background: transparent;
   font-size: 20px;
-  color: #33363F;
+  color: #33363f;
   cursor: pointer;
 }
-
 
 .popup-content .btn-primary {
   width: 83px;
@@ -99,12 +123,26 @@
 .btn-secondary {
   width: 83px;
   border: none;
-  background: #F5F7FF;
+  background: #f5f7ff;
   border-radius: 34px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
   cursor: pointer;
   color: var(--hover-color);
+}
+
+@media (max-width: 550px) {
+  .popup {
+    width: 350px !important;
+  }
+  .btn-primary {
+    width: 120px;
+    font-size: 12px;
+    column-gap: 5px;
+  }
+  .btn-primary span:nth-child(1) {
+    font-size: 10px;
+  }
 }

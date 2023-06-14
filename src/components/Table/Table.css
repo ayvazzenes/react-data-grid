@@ -1,147 +1,164 @@
-.app-table{
- 
-  width : 100%;
+/* TABLE CSS START */
+.app-table {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 550px;
+  height: calc(100vh - 368px);
   overflow-x: auto;
 }
+.table-wrapper {
+  position: relative;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+}
+.line-height-1 {
+  position: absolute;
+  top: 0;
+  left: 34%;
+  bottom: 0;
+  width: 1px;
+  background-color: #c4cee5;
+}
+.line-height-2 {
+  position: absolute;
+  top: 0;
+  left: 68%;
+  bottom: 0;
+  width: 1px;
+  background-color: #c4cee5;
+}
+
 .app-table ::selection {
   background-color: transparent;
 }
 .app-table-head-row,
-.app-table-body-row{
+.app-table-body-row {
   display: flex;
   height: 64px;
   align-items: center;
   transition: 0.5s ease;
 }
-.app-table-body-row:hover{
+.app-table-body-row:hover {
   background: rgba(255, 255, 255, 0.71);
   box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.11);
 }
 
 .app-table-head-row th,
-.app-table-body-row td{
+.app-table-body-row td {
   flex: 1;
   display: flex;
 
+  min-width: 120px;
+}
+.app-table-body-row:nth-child(even) {
+  background: linear-gradient(
+    180deg,
+    #eff2ff -30.56%,
+    rgba(232, 236, 255, 0) 135.85%
+  );
 }
 
-.app-table-body-row td{
-  font-family: 'Inter';
+.app-table-body-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.app-table-body-row td {
+  font-family: "Inter";
   font-weight: 400;
   font-size: 14px;
-  line-height: 15px;
   color: var(--text-color);
   padding-left: 52px;
 }
 
-.app-table-head-row th{
-  font-family: 'Poppins';
+.app-table-head-row th {
+  font-family: "Poppins";
   font-weight: 600;
   font-size: 14px;
   line-height: 20px;
   color: var(--text-color);
   padding-left: 52px;
-
 }
-.app-table-head{
-  border-bottom: 1px solid #C4CEE5;
+.app-table-head {
+  border-bottom: 1px solid #c4cee5;
 }
 .app-table-head-row th,
-.app-table-body-row td{
-  
+.app-table-body-row td {
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-
-.app-table-body-row td:nth-child(1),
-.app-table-head-row th:nth-child(1),
-.app-table-body-row td:nth-child(2),
-.app-table-head-row th:nth-child(2){
-  border-right: 1px solid #C4CEE5;
-}
-
-
-.custom-select {
-  border: 1px solid var(--hover-color);
-  padding: 8px;
-  font-size: 14px;
-  width: 130px;
-  border-radius: 20px;
-  position: absolute;
-  top: -2px;
-  right: -140px;
-}
-
-.custom-option {
-  background-color: #fff;
-  color: var(--text-color);
-}
-
-.custom-select:focus,
-.custom-select:active,
-.custom-select:hover {
-  outline: none;
-  border: 1px solid var(--hover-color);
-}
-.custom-option:checked {
-  background-color: #fff;
-  color: var(--text-color);
-}
-
-
-.sortable-css{
-  
+.sortable-css {
   width: 100%;
   padding-right: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.sortable-css span{
-  
-  color: #C0B8DC;
+.sortable-css span {
+  color: #c0b8dc;
   height: 20px;
 }
-.sortable-css span:hover{
+.sortable-css span:hover {
   color: var(--hover-color);
 }
+/* TABLE CSS END */
 
-.pagination-show{
-  display: flex;
-  
-}
-.pagination-text-arrow{
-  display: flex;
-  width: 150px;
-  justify-content: space-between;
-  align-items: center;
-  
- 
-}
-.pagination{
+/* ! pagination start */
+.pagination {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 80px;
 }
-.pagination-text-arrow button{
+.pagination > div {
+  flex: 1;
+}
+.pagination-show {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+
+  column-gap: 23px;
+}
+.pagination-show label {
+  font-family: "Poppins";
+  height: 100%;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 14px;
+
+  color: #744bfc;
+}
+.pagination-text-arrow {
+  display: flex;
+  max-width: 150px;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.pagination-text-arrow button {
   border: none;
   background: transparent;
   font-size: 22px;
   padding: 0 5px;
-  
 }
-
-.page-number{
-  font-family: 'Poppins';
+.disabled-button {
+  color: #c0b8dc;
+}
+.custom-button {
+  color: var(--hover-color);
+}
+.page-number {
+  font-family: "Poppins";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  color: #C9C9C9;
+  color: #c9c9c9;
   padding: 0 5px 6px 0;
   display: flex;
   width: 100px;
@@ -149,28 +166,93 @@
   align-items: center;
   justify-content: center;
 }
-.page-total{
+.page-total {
   color: var(--hover-color);
   margin-left: 10px;
 
-  
   width: 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.page-active{
+.page-active {
   margin-right: 12px;
-  background: #FFFFFF;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;;
-  
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 4px;
+
   width: 20px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--text-color);
-  
+}
+
+.pagination-select {
+  border: 1px solid var(--hover-color);
+  padding: 8px;
+  font-size: 14px;
+  width: 80px;
+  border-radius: 39px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--text-color);
+}
+
+.pagination-option {
+  background-color: #fff;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--text-color);
+}
+
+.pagination-select:focus,
+.pagination-select:active,
+.pagination-select:hover {
+  outline: none;
+  border: 1px solid #cfc0ff;
+}
+.pagination-option:checked {
+  background-color: #fff;
+  color: var(--text-color);
+}
+/* ! pagination end */
+
+@media (max-width: 1200px) {
+  .app-table-body-row td,
+  .app-table-head-row th {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 850px) {
+  .app-table-body-row td,
+  .app-table-head-row th {
+    padding-left: 20px;
+    word-wrap: break-word;
+    font-size: 12px;
+    white-space: nowrap; /* Metni tek bir satırda tutar */
+    overflow: hidden; /* Taşan kısmı gizler */
+    text-overflow: ellipsis;
+  }
+}
+@media (max-width: 550px) {
+  .sortable-css {
+    font-size: 10px;
+  }
+  .app-table-body-row td,
+  .app-table-head-row th {
+    padding-left: 10px;
+    font-size: 10px;
+  }
+  .page-number {
+    font-size: 12px;
+  }
+  .pagination-show label {
+    font-size: 12px;
+  }
 }

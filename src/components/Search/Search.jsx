@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import "./Search.css";
 import logoUnion from "../../assets/icons/logo-union.png";
 
-function Search({ onInput,onSelected }) {
+function Search({ onInput, onSelected }) {
   const [inputValue, setInputValue] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("link");
-
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -14,13 +13,13 @@ function Search({ onInput,onSelected }) {
     setInputValue(value);
     onInput(value);
   };
-  
+
   const handleSelect = (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
     onSelected(selectedValue);
   };
-  
+
   const handleLogoClick = () => {
     setIsOpen(!isOpen);
   };
@@ -42,14 +41,23 @@ function Search({ onInput,onSelected }) {
         </button>
       </div>
       <div className="logo-union">
-        <img src={logoUnion} alt="logo-Union"  onClick={handleLogoClick}/>
+        <img src={logoUnion} alt="logo-Union" onClick={handleLogoClick} />
         {isOpen && (
-          <select className="custom-select" value={selectedOption} onChange={handleSelect}>
-            <option className="custom-option" value="link">Medya Linki</option>
-            <option className="custom-option" value="name">Medya Adı</option>
-            <option className="custom-option" value="description">Açıklama</option>
+          <select
+            className="custom-select"
+            value={selectedOption}
+            onChange={handleSelect}
+          >
+            <option className="custom-option" value="link">
+              Medya Linki
+            </option>
+            <option className="custom-option" value="name">
+              Medya Adı
+            </option>
+            <option className="custom-option" value="description">
+              Açıklama
+            </option>
           </select>
-
         )}
       </div>
     </div>

@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import appLogo from "../../assets/logos/app-logo.png";
 import logoYoutube from "../../assets/icons/logo-youtube.png";
 import logoInstagram from "../../assets/icons/logo-instagram.png";
 import logolinkedın from "../../assets/icons/logo-linkedln.png";
 import logoBehance from "../../assets/icons/logo-behance.png";
-import "./Header.css"
+import "./Header.css";
 
 const Header = () => {
+  const [openSideBar, setOpenSideBar] = useState(false);
+  const handleSidebar = () => {
+    setOpenSideBar((prevOpenSidebar) => !prevOpenSidebar);
+  };
   return (
     <header className="app-header">
       <nav className="app-navbar container">
         <div className="app-logo">
           <img src={appLogo} alt="app-logo" />
         </div>
-        <ul className="navbar-links">
+        <ul className={`navbar-links ${openSideBar ? "open" : ""}`}>
           <li className="navbar-link">
             <a href="#home">Hakkımızda</a>
           </li>
@@ -50,7 +54,7 @@ const Header = () => {
             </a>
           </li>
         </ul>
-        <div className="hamburger">
+        <div className="hamburger" onClick={handleSidebar}>
           <div className="bar"></div>
           <div className="bar"></div>
           <div className="bar"></div>

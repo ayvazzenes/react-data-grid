@@ -8,6 +8,7 @@ import "./Header.css";
 
 const Header = () => {
   const [openSideBar, setOpenSideBar] = useState(false);
+  //sayfa responsive olunca sidebarı aktif etme
   const handleSidebar = () => {
     setOpenSideBar((prevOpenSidebar) => !prevOpenSidebar);
   };

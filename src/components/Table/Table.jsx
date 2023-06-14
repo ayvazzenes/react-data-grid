@@ -2,19 +2,23 @@ import React, { useState } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./Table.css";
+import { sortData, getPageData } from "../../services/TableService";
 
 const Table = ({ onSearch, onSelect, tasks }) => {
-  const [sortedColumn, setSortedColumn] = useState(null);
-  const [sortOrder, setSortOrder] = useState("asc");
-  const [perPage, setPerPage] = useState(4);
-  const [currentPage, setCurrentPage] = useState(1);
+  //tasks gelen datalarımı temsil eder
+  const [sortedColumn, setSortedColumn] = useState(null); // Sıralama yapılan sütunu tutmak için state kullanılır
+  const [sortOrder, setSortOrder] = useState("asc"); // Sıralama sırasını tutmak için state kullanılır
+  const [perPage, setPerPage] = useState(4); // Sayfa başına gösterilecek satır sayısını tutmak için state kullanılır
+  const [currentPage, setCurrentPage] = useState(1); // Şu an görüntülenen sayfa numarasını tutmak için state kullanılır
 
   const handleSort = (column) => {
     if (sortedColumn === column) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+      // Eğer tıklanan sütun zaten sıralı sütunsa
+      setSortOrder(sortOrder === "asc" ? "desc" : "asc"); // Sıralama sırasını değiştir (asc ise desc, desc ise asc)
     } else {
-      setSortedColumn(column);
-      setSortOrder("asc");
+      // Eğer tıklanan sütun başka bir sütunsa
+      setSortedColumn(column); // Sıralama sütununu değiştir
+      setSortOrder("asc"); // Sıralama sırasını varsayılan olarak asc yap
     }
   };
 
@@ -23,19 +27,7 @@ const Table = ({ onSearch, onSelect, tasks }) => {
     return mediaName.includes(onSearch.toLowerCase());
   });
 
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (sortedColumn) {
-      const valueA = a[sortedColumn].toLowerCase();
-      const valueB = b[sortedColumn].toLowerCase();
-      if (sortOrder === "asc") {
-        return valueA.localeCompare(valueB);
-      } else {
-        return valueB.localeCompare(valueA);
-      }
-    } else {
-      return 0;
-    }
-  });
+  /* tablodaki sayfayı ilerletme */
   const handleNextPage = () => {
     if (currentPage < pageCount) {
       setCurrentPage(currentPage + 1);
@@ -47,11 +39,15 @@ const Table = ({ onSearch, onSelect, tasks }) => {
       setCurrentPage(currentPage - 1);
     }
   };
+  //Tableservices.js dosyasından sıralama fonksiyonu alınarak işlemler yapılır
+  const sortedData = sortData(filteredData, sortedColumn, sortOrder);
 
-  const pageCount = Math.ceil(sortedData.length / perPage);
-  const startIndex = (currentPage - 1) * perPage;
-  const endIndex = startIndex + perPage;
-  const currentPageData = sortedData.slice(startIndex, endIndex);
+  //Tableservices.js dosyasından sayfalama fonksiyonu alınarak sayfalama işlemi yapılır
+  const { currentPageData, pageCount } = getPageData(
+    sortedData,
+    currentPage,
+    perPage
+  );
 
   return (
     <div>

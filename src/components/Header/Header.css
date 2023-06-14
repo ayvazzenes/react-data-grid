@@ -69,6 +69,10 @@
 .hamburger:hover .bar:nth-child(2) {
   width: 25px;
 }
+
+/* ! HEADER CSS END */
+
+/* ! HEADER CSS RESPONSİVE START */
 @media (max-width: 1366px) {
   .navbar-links {
     column-gap: 40px;
@@ -110,5 +114,4 @@
     display: block;
   }
 }
-
-/* ! HEADER CSS END */
+/* ! HEADER CSS RESPONSİVE END */

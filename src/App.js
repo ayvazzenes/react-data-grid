@@ -10,12 +10,16 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [selectedValue, setSelectedValue] = useState("link");
   const [tasks, setTasks] = useState([]);
+  
   const handleSearch = (query) => {
     setInputValue(query);
   };
+
   const handleSelected = (value) => {
     setSelectedValue(value);
   };
+
+  // Uygulama ilk yüklendiğinde localStorage'dan görevleri almak için useEffect hook'u
   useEffect(() => {
     const savedTasks = localStorage.getItem("tasks");
     if (savedTasks) {
@@ -23,7 +27,9 @@ function App() {
     }
   }, []);
 
+  // Yeni bir görevi duruma ve localStorage'a ekleme
   const handleSaveData = (data) => {
+    //rastgele id oluşturulur
     const id = uuidv4();
     const taskWithId = { ...data, id };
     const tasksArray = [...tasks, taskWithId];

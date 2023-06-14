@@ -8,6 +8,7 @@ const CreateData = ({ onSave }) => {
   const [input3, setInput3] = useState("");
   const [error, setError] = useState("");
 
+  //kullanıcıdan verileri alınır ve kullanılmak üzere set edilir
   const handleInputChange = (e, setInput) => {
     setInput(e.target.value);
   };
@@ -20,6 +21,7 @@ const CreateData = ({ onSave }) => {
       return;
     }
 
+    //app componente alınan veriler obje şeklinde gönderilir props olarak
     onSave({
       media_link: input1,
       media_name: input2,

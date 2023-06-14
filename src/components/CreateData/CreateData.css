@@ -133,6 +133,7 @@
   color: var(--hover-color);
 }
 
+/*! CREATE DATA RESPONSİVE START  */
 @media (max-width: 550px) {
   .popup {
     width: 350px !important;
@@ -146,3 +147,4 @@
     font-size: 10px;
   }
 }
+/*! CREATE DATA RESPONSİVE END  */

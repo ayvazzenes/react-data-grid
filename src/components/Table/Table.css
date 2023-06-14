@@ -222,6 +222,7 @@
 }
 /* ! pagination end */
 
+/* ? TABLE CSS RESPONSİVE START */
 @media (max-width: 1200px) {
   .app-table-body-row td,
   .app-table-head-row th {
@@ -256,3 +257,4 @@
     font-size: 12px;
   }
 }
+/* ? TABLE CSS RESPONSİVE END */

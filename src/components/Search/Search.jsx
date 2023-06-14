@@ -7,6 +7,7 @@ function Search({ onInput, onSelected }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("link");
 
+  //filtreleme için girinen kelime app componente props olarak geçilir
   const handleChange = (event) => {
     event.preventDefault();
     const value = event.target.value;
@@ -14,12 +15,14 @@ function Search({ onInput, onSelected }) {
     onInput(value);
   };
 
+  //filtreleme için seçilen filtre app componente props olarak geçilir
   const handleSelect = (event) => {
     const selectedValue = event.target.value;
     setSelectedOption(selectedValue);
     onSelected(selectedValue);
   };
 
+  //filtreleme butonun aktif edilmesi
   const handleLogoClick = () => {
     setIsOpen(!isOpen);
   };

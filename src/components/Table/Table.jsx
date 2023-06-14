@@ -1,10 +1,6 @@
 import React, { useState } from "react";
-import {
-  BsArrowUp,
-  BsArrowDown,
-  BsArrowLeft,
-  BsArrowRight,
-} from "react-icons/bs";
+import { BsArrowUp, BsArrowDown } from "react-icons/bs";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./Table.css";
 
 const Table = ({ onSearch, onSelect, tasks }) => {
@@ -128,33 +124,35 @@ const Table = ({ onSearch, onSelect, tasks }) => {
           ))}
         </tbody>
       </table>
-      <div>
-        <label>Show:</label>
-        <select
-          value={perPage}
-          onChange={(e) => {
-            const newPerPage = parseInt(e.target.value);
-            setPerPage(newPerPage);
+      <div className="pagination">
+        <div className="pagination-show">
+          <label>Show:</label>
+          <select
+            value={perPage}
+            onChange={(e) => {
+              const newPerPage = parseInt(e.target.value);
+              setPerPage(newPerPage);
 
-            const newPageCount = Math.ceil(sortedData.length / newPerPage);
-            if (currentPage > newPageCount) {
-              setCurrentPage(1);
-            }
-          }}
-        >
-          <option value={4}>4</option>
-          <option value={6}>6</option>
-          <option value={20}>20</option>
-        </select>
-      </div>
-      <div>
-        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-          <BsArrowLeft /> 
-        </button>
-        <span>{`${currentPage} of ${pageCount}`}</span>
-        <button onClick={handleNextPage} disabled={currentPage === pageCount}>
-          <BsArrowRight /> 
-        </button>
+              const newPageCount = Math.ceil(sortedData.length / newPerPage);
+              if (currentPage > newPageCount) {
+                setCurrentPage(1);
+              }
+            }}
+          >
+            <option value={4}>4</option>
+            <option value={6}>6</option>
+            <option value={20}>20</option>
+          </select>
+        </div>
+        <div className="pagination-text-arrow">
+          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+            <IoIosArrowBack />
+          </button>
+          <span className="page-number"><span className="page-active">{`${currentPage}`}</span> of <span className="page-total">{`${pageCount}`}</span></span>
+          <button onClick={handleNextPage} disabled={currentPage === pageCount}>
+            <IoIosArrowForward />
+          </button>
+        </div>
       </div>
     </div>
   );

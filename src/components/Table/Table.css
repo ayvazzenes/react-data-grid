@@ -110,3 +110,67 @@
 .sortable-css span:hover{
   color: var(--hover-color);
 }
+
+.pagination-show{
+  display: flex;
+  
+}
+.pagination-text-arrow{
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  
+ 
+}
+.pagination{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pagination-text-arrow button{
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  padding: 0 5px;
+  
+}
+
+.page-number{
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #C9C9C9;
+  padding: 0 5px 6px 0;
+  display: flex;
+  width: 100px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.page-total{
+  color: var(--hover-color);
+  margin-left: 10px;
+
+  
+  width: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-active{
+  margin-right: 12px;
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;;
+  
+  width: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  
+}

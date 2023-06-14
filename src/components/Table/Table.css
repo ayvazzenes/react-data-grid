@@ -3,7 +3,7 @@
   width : 100%;
   display: flex;
   flex-direction: column;
-  max-height: 550px;
+  height: 550px;
   overflow-x: auto;
 }
 
@@ -92,3 +92,19 @@
 }
 
 
+.sortable-css{
+  
+  width: 100%;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sortable-css span{
+  
+  color: #C0B8DC;
+  height: 20px;
+}
+.sortable-css span:hover{
+  color: var(--hover-color);
+}

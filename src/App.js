@@ -1,13 +1,15 @@
 import "./App.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
 import CreateData from "./components/CreateData/CreateData";
 import Table from "./components/Table/Table";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [inputValue, setInputValue] = useState("");
   const [selectedValue, setSelectedValue] = useState("link");
+  const [tasks, setTasks] = useState([]);
   const handleSearch = (query)=>{
     setInputValue(query);
 
@@ -16,19 +18,22 @@ function App() {
     setSelectedValue(value);
     
   };
-  let newData = [];
-  const handleSaveData = (data)=>{
-    const existingData = localStorage.getItem("savedData");
-    
-    if (existingData) {
-      newData = JSON.parse(existingData);
+  useEffect(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      setTasks(JSON.parse(savedTasks));
     }
-    newData.push(data);
-
-    localStorage.setItem("savedData", JSON.stringify(newData));
-
-    
-  }
+  }, []);
+  
+  const handleSaveData = (data) => {
+    const id = uuidv4();
+    const taskWithId = { ...data, id };
+    const tasksArray = [...tasks, taskWithId];
+    setTasks(tasksArray);
+    // Verileri localStorage'a kaydet
+    localStorage.setItem("tasks", JSON.stringify(tasksArray));
+  };
+  
   
   return (
     <div className="App">
@@ -40,7 +45,7 @@ function App() {
           
         </div>
         <div className="container app-mt">
-        <Table onSearch={inputValue} onSelect = {selectedValue}/>
+        <Table onSearch={inputValue} onSelect = {selectedValue} tasks={tasks}/>
         </div>
     </div>
   );

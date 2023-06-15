@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsArrowUp, BsArrowDown } from "react-icons/bs";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import "./Table.css";
@@ -6,19 +6,37 @@ import { sortData, getPageData } from "../../services/TableService";
 
 const Table = ({ onSearch, onSelect, tasks }) => {
   //tasks gelen datalarımı temsil eder
-  const [sortedColumn, setSortedColumn] = useState(null); // Sıralama yapılan sütunu tutmak için state kullanılır
-  const [sortOrder, setSortOrder] = useState("asc"); // Sıralama sırasını tutmak için state kullanılır
-  const [perPage, setPerPage] = useState(4); // Sayfa başına gösterilecek satır sayısını tutmak için state kullanılır
-  const [currentPage, setCurrentPage] = useState(1); // Şu an görüntülenen sayfa numarasını tutmak için state kullanılır
+  const [sortedColumn, setSortedColumn] = useState(null);
+  const [sortOrder, setSortOrder] = useState("asc");
+  const [perPage, setPerPage] = useState(() => {
+    const savedPerPage = localStorage.getItem("perPage");
+    return savedPerPage ? JSON.parse(savedPerPage) : 4;
+  });
+
+  const [currentPage, setCurrentPage] = useState(() => {
+    const savedCurrentPage = localStorage.getItem("currentPage");
+    return savedCurrentPage ? JSON.parse(savedCurrentPage) : 1;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("perPage", JSON.stringify(perPage));
+    localStorage.setItem("currentPage", JSON.stringify(currentPage));
+  }, [perPage, currentPage]);
+
+  useEffect(() => {
+    setCurrentPage(1); // Arama terimi veya seçilen sütun değiştiğinde sayfayı sıfırla
+  }, [onSearch, onSelect]);
 
   const handleSort = (column) => {
     if (sortedColumn === column) {
       // Eğer tıklanan sütun zaten sıralı sütunsa
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc"); // Sıralama sırasını değiştir (asc ise desc, desc ise asc)
+      setSortOrder(
+        sortOrder === "asc" ? "desc" : "asc"
+      ); /* Sıralama sırasını değiştir (asc ise desc, desc ise asc) */
     } else {
-      // Eğer tıklanan sütun başka bir sütunsa
-      setSortedColumn(column); // Sıralama sütununu değiştir
-      setSortOrder("asc"); // Sıralama sırasını varsayılan olarak asc yap
+      /* Eğer tıklanan sütun başka bir sütunsa */
+      setSortedColumn(column); /* Sıralama sütununu değiştir */
+      setSortOrder("asc"); /* Sıralama sırasını varsayılan olarak asc yap */
     }
   };
 
